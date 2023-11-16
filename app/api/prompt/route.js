@@ -1,6 +1,5 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
-import nodemailer from "nodemailer"
 export const GET = async (request) => {
     try {
         await connectToDB()
