@@ -9,7 +9,9 @@ import Profile from "@components/Profile";
 const MyProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
-
+  // if (session === undefined || session === null) {
+  //   router.push("/");
+  // }
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {

@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import Profile from "@components/Profile";
 
 const UserProfile = ({ params }) => {
   const searchParams = useSearchParams();
   const userName = searchParams.get("name");
-
+  const { data: session } = useSession();
+  if (session === undefined || session === null) {
+    router.push("/");
+  }
   const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
